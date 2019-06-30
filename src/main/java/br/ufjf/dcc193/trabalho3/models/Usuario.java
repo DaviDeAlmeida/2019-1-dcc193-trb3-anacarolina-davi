@@ -1,7 +1,13 @@
 package br.ufjf.dcc193.trabalho3.models;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long idUsuario;
     private String nomeCompleto;
     private String codAcesso;

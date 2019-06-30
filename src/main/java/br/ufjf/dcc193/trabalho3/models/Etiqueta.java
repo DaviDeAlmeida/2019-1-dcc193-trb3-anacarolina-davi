@@ -1,7 +1,13 @@
 package br.ufjf.dcc193.trabalho3.models;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Etiqueta {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long idEtiqueta;
     private String titulo;
     private String descricao;

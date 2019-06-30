@@ -1,9 +1,14 @@
 package br.ufjf.dcc193.trabalho3.models;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.List;
 
 public class Item {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long idItem;
     private String titulo;
     private List<Anotacao> anotacoes;
