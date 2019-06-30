@@ -8,7 +8,7 @@ public class Anotacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long idAnotacao;
+    private Long idAnotacao;
     private String descricao;
     private String url;
     private Usuario usuario;
@@ -18,7 +18,7 @@ public class Anotacao {
     public Anotacao() {
     }
 
-    public Anotacao(long idAnotacao, String descricao, String url, Usuario usuario, String dataInclusão, String dataAlteracao) {
+    public Anotacao(Long idAnotacao, String descricao, String url, Usuario usuario, String dataInclusão, String dataAlteracao) {
         this.idAnotacao = idAnotacao;
         this.descricao = descricao;
         this.url = url;
@@ -27,11 +27,11 @@ public class Anotacao {
         this.dataAlteracao = dataAlteracao;
     }
 
-    public long getIdAnotacao() {
+    public Long getIdAnotacao() {
         return idAnotacao;
     }
 
-    public void setIdAnotacao(long idAnotacao) {
+    public void setIdAnotacao(Long idAnotacao) {
         this.idAnotacao = idAnotacao;
     }
 

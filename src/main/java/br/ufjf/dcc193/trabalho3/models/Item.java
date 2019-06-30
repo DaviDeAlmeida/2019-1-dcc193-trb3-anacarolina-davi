@@ -9,7 +9,7 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long idItem;
+    private Long idItem;
     private String titulo;
     private List<Anotacao> anotacoes;
     private List<Etiqueta> etiquetas;
@@ -18,7 +18,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(long idItem, String titulo, List<Anotacao> anotacoes, List<Etiqueta> etiquetas, List<Vinculo> vinculos) {
+    public Item(Long idItem, String titulo, List<Anotacao> anotacoes, List<Etiqueta> etiquetas, List<Vinculo> vinculos) {
         this.idItem = idItem;
         this.titulo = titulo;
         this.anotacoes = anotacoes;
@@ -26,11 +26,11 @@ public class Item {
         this.vinculos = vinculos;
     }
 
-    public long getIdItem() {
+    public Long getIdItem() {
         return idItem;
     }
 
-    public void setIdItem(long idItem) {
+    public void setIdItem(Long idItem) {
         this.idItem = idItem;
     }
 

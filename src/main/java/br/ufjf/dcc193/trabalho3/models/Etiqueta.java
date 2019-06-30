@@ -8,7 +8,7 @@ public class Etiqueta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long idEtiqueta;
+    private Long idEtiqueta;
     private String titulo;
     private String descricao;
     private String url;
@@ -16,18 +16,18 @@ public class Etiqueta {
     public Etiqueta() {
     }
 
-    public Etiqueta(long idEtiqueta, String titulo, String descricao, String url) {
+    public Etiqueta(Long idEtiqueta, String titulo, String descricao, String url) {
         this.idEtiqueta = idEtiqueta;
         this.titulo = titulo;
         this.descricao = descricao;
         this.url = url;
     }
 
-    public long getIdEtiqueta() {
+    public Long getIdEtiqueta() {
         return idEtiqueta;
     }
 
-    public void setIdEtiqueta(long idEtiqueta) {
+    public void setIdEtiqueta(Long idEtiqueta) {
         this.idEtiqueta = idEtiqueta;
     }
 

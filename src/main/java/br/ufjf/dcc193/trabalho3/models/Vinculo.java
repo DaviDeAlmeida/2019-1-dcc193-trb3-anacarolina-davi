@@ -9,7 +9,7 @@ public class Vinculo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long idVinculo;
+    private Long idVinculo;
     private Item itemOrigem;
     private Item itemDestino;
     private List<Etiqueta> etiquetas;
@@ -18,7 +18,7 @@ public class Vinculo {
     public Vinculo() {
     }
 
-    public Vinculo(long idVinculo, Item itemOrigem, Item itemDestino, List<Etiqueta> etiquetas, List<Anotacao> anotacoes) {
+    public Vinculo(Long idVinculo, Item itemOrigem, Item itemDestino, List<Etiqueta> etiquetas, List<Anotacao> anotacoes) {
         this.idVinculo = idVinculo;
         this.itemOrigem = itemOrigem;
         this.itemDestino = itemDestino;
@@ -26,11 +26,11 @@ public class Vinculo {
         this.anotacoes = anotacoes;
     }
 
-    public long getIdVinculo() {
+    public Long getIdVinculo() {
         return idVinculo;
     }
 
-    public void setIdVinculo(long idVinculo) {
+    public void setIdVinculo(Long idVinculo) {
         this.idVinculo = idVinculo;
     }
 

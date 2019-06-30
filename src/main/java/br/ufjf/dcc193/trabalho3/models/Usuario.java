@@ -8,7 +8,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long idUsuario;
+    private Long idUsuario;
     private String nomeCompleto;
     private String codAcesso;
     private String descricao;
@@ -17,7 +17,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(long idUsuario, String nomeCompleto, String codAcesso, String descricao, String email) {
+    public Usuario(Long idUsuario, String nomeCompleto, String codAcesso, String descricao, String email) {
         this.idUsuario = idUsuario;
         this.nomeCompleto = nomeCompleto;
         this.codAcesso = codAcesso;
@@ -25,11 +25,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public long getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(long idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
