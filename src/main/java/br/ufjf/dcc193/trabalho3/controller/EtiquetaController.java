@@ -17,7 +17,7 @@ public class EtiquetaController {
     
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("etiqueta", repository.findAll());
+        model.addAttribute("etiquetas", repository.findAll());
         return "admin/etiqueta/index";
     }
 
