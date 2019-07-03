@@ -42,8 +42,8 @@ public class ItemController {
 
     @RequestMapping("admin/itens/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
-        model.addAttribute("item", itemRepository.findById(id));
-        model.addAttribute("etiquetaList", etiquetaRepository.findAll());
+        model.addAttribute("item", itemRepository.findById(id).get());
+        model.addAttribute("etiquetas", etiquetaRepository.findAll());
         return "admin/itens/edit";
     }
 

@@ -1,5 +1,6 @@
 package br.ufjf.dcc193.trabalho3.models;
 
+import java.util.ArrayList;
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class Item {
     private List<Vinculo> vinculos;
 
     public Item() {
+        etiquetas = new ArrayList<>();
     }
 
     public Item(Long idItem, String titulo, List<Anotacao> anotacoes, List<Etiqueta> etiquetas, List<Vinculo> vinculos) {
