@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#tbEtiquetas').DataTable({
+    $('#tbItens,#tbEtiquetas').DataTable({
         "language": {
             "search": "Buscar:",
             "lengthMenu": "Exibir _MENU_ registros por página",
