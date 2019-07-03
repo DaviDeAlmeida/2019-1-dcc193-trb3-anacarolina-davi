@@ -37,11 +37,19 @@ public class ItemVinculoController {
         model.addAttribute("etiquetas", etiquetaRepository.findAll());
         return "admin/item-vinculo/create";
     }
+    
+    @RequestMapping("admin/vinculo/create")
+    public String criar(Model model) {
+        model.addAttribute("vinculo", new Vinculo());
+        model.addAttribute("itens", itemRepository.findAll());
+        model.addAttribute("etiquetas", etiquetaRepository.findAll());
+        return "admin/item-vinculo/create2";
+    }
 
     @RequestMapping("admin/vinculo/store")
     public String store(Vinculo vinculo) {
         vinculoRepository.save(vinculo);
-        return "redirect:/admin/vinculo/item/" + vinculo.getItemDestino().getIdItem();
+        return "redirect:/admin/vinculo/item/" + vinculo.getItemOrigem().getIdItem();
     }
 
     @RequestMapping("/admin/vinculo/edit/{id}")
