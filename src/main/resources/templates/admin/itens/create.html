@@ -7,7 +7,7 @@
         <meta name="description" content="Trabalho 3"/>
         <meta name="author" content="Ana Carolina Fidelis Gonçalves e Davi de Almeida Cardoso"/>
 
-        <title>Trabalho 3 | Home</title>
+        <title>Trabalho 3 | Itens</title>
 
         <!-- Custom fonts for this template-->
         <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
@@ -38,7 +38,42 @@
 
             <div id="content-wrapper">
                 <div class="container-fluid">
-                    
+                    <!-- Breadcrumbs-->
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a th:href="@{/admin/itens}">Itens</a>
+                        </li>
+                        <li class="breadcrumb-item active">Novo</li>
+                    </ol>
+
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fas fa-list-alt"></i> Item 
+                        </div>
+                        <form th:action="@{/admin/itens/store}" th:object="${item}" method="post">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="titulo">Título</label>
+                                    <input type="text" class="form-control" th:field="*{titulo}" required=""/>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Etiquetas</label>
+                                    <div class="form-check">
+                                        <div class="row">
+                                            <div class="col-4" th:each="etiqueta: ${etiquetas}" th:object=${Etiqueta}>
+                                                <input class="form-check-input" type="checkbox" th:id="${etiqueta.idEtiqueta}" th:value="${etiqueta.idEtiqueta}" name="etiquetas">
+                                                    <label class="form-check-label" th:for="${etiqueta.idEtiqueta}" th:text="${etiqueta.titulo}"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a class="btn btn-dark" th:href="@{/admin/itens}"><i class="fas fa-chevron-left"></i> Voltar</a>
+                                <button class="btn btn-primary" type="submit">Salvar</button>
+                            </div> 
+                        </form>
+                    </div>
                 </div>
 
                 <!-- Sticky Footer -->
