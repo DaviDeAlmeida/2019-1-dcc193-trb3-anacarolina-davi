@@ -7,7 +7,7 @@
         <meta name="description" content="Trabalho 3"/>
         <meta name="author" content="Ana Carolina Fidelis Gonçalves e Davi de Almeida Cardoso"/>
 
-        <title>Trabalho 3 | Itens</title>
+        <title>Trabalho 3 | Item > Vínculos</title>
 
         <!-- Custom fonts for this template-->
         <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
@@ -41,34 +41,34 @@
                 <div class="container-fluid">
                     <!-- Breadcrumbs-->
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active">Itens</li>
+                        <li class="breadcrumb-item active">Item > Vínculos</li>
                     </ol>
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-list-ol"></i> Itens
+                            <i class="fa fa-snowflake-o"></i> Item > Vínculos
                         </div>
                         <div class="card-body">
-                            <a class="btn btn-success mb-3" th:href="@{/admin/itens/create}"><i class="fas fa-plus"></i> Novo Item</a>
+                            <p><i class="fa fa-list-ol"></i> Item de Origem: <span th:text="${item.titulo}"></span></p>
+                            <a class="btn btn-success mb-3" th:href="@{'/admin/vinculo/item/' + ${item.idItem} + '/create'}"><i class="fas fa-plus"></i> Novo Vínculo</a>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tbItens" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>TÍTULO</th>
+                                            <th>ITEM DE DESTINO</th>
                                             <th>ETIQUETAS</th>
                                             <th>AÇÕES</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="item: ${itens}">
-                                            <td th:text="${item.titulo}"></td>
+                                        <tr th:each="vinculo: ${vinculos}">
+                                            <td th:text="${vinculo.itemDestino.titulo}"></td>
                                             <td>
-                                                <a th:href="@{'/admin/itens/etiqueta/' + ${etiqueta.idEtiqueta}}" class="badge badge-warning" th:each="etiqueta: ${item.etiquetas}"  th:text="${etiqueta.titulo}" title="Itens da etiqueta"></a>
+                                                <span class="badge badge-dark" th:each="etiqueta: ${vinculo.etiquetas}"  th:text="${etiqueta.titulo}"></span>
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group">
-                                                    <a th:href="@{'/admin/itens/edit/' + ${item.idItem}}" class="btn btn-sm btn-primary">Editar</a>
-                                                    <a  th:href="@{'/admin/itens/delete/' + ${item.idItem}}" class="btn btn-sm btn-danger">Excluir</a>
-                                                    <a  th:href="@{'/admin/vinculo/item/' + ${item.idItem}}" class="btn btn-sm btn-success">Vículos</a>
+                                                    <a th:href="@{'/admin/vinculo/item/' + ${item.idItem} + '/edit/' + ${vinculo.idVinculo}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a  th:href="@{'/admin/vinculo/item/' + ${item.idItem} + '/delete/' + ${vinculo.idVinculo}}" class="btn btn-sm btn-danger">Excluir</a>
                                                 </div>
                                             </td>
                                         </tr>
