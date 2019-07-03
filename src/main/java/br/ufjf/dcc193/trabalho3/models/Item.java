@@ -1,20 +1,23 @@
 package br.ufjf.dcc193.trabalho3.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idItem;
     private String titulo;
+
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Anotacao> anotacoes;
+
+    @ManyToMany
     private List<Etiqueta> etiquetas;
+
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Vinculo> vinculos;
 
     public Item() {

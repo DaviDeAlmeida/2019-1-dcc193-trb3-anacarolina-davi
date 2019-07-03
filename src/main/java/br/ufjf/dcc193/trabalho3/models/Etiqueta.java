@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Etiqueta {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idEtiqueta;
     private String titulo;
     private String descricao;

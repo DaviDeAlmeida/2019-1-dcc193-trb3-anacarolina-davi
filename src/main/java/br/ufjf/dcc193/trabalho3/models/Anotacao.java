@@ -1,19 +1,19 @@
 package br.ufjf.dcc193.trabalho3.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Anotacao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idAnotacao;
     private String descricao;
     private String url;
+
+    @OneToOne(fetch = FetchType.EAGER)
     private Usuario usuario;
+
     private String dataInclusao;
     private String dataAlteracao;
 
