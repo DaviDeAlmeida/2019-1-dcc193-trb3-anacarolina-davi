@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author acaro e Davi
+ * @author acaro
  */
 @Controller
 public class HomeController {

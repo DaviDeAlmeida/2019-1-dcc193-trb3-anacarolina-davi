@@ -1,9 +1,11 @@
 package br.ufjf.dcc193.trabalho3.models;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Anotacao {
 
     @Id
@@ -12,18 +14,18 @@ public class Anotacao {
     private String descricao;
     private String url;
     private Usuario usuario;
-    private String dataInclusão;
+    private String dataInclusao;
     private String dataAlteracao;
 
     public Anotacao() {
     }
 
-    public Anotacao(Long idAnotacao, String descricao, String url, Usuario usuario, String dataInclusão, String dataAlteracao) {
+    public Anotacao(Long idAnotacao, String descricao, String url, Usuario usuario, String dataInclusao, String dataAlteracao) {
         this.idAnotacao = idAnotacao;
         this.descricao = descricao;
         this.url = url;
         this.usuario = usuario;
-        this.dataInclusão = dataInclusão;
+        this.dataInclusao = dataInclusao;
         this.dataAlteracao = dataAlteracao;
     }
 
@@ -59,12 +61,12 @@ public class Anotacao {
         this.usuario = usuario;
     }
 
-    public String getDataInclusão() {
-        return dataInclusão;
+    public String getDataInclusao() {
+        return dataInclusao;
     }
 
-    public void setDataInclusão(String dataInclusão) {
-        this.dataInclusão = dataInclusão;
+    public void setDataInclusao(String dataInclusao) {
+        this.dataInclusao = dataInclusao;
     }
 
     public String getDataAlteracao() {
