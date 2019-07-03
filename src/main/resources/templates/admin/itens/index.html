@@ -7,7 +7,7 @@
         <meta name="description" content="Trabalho 3"/>
         <meta name="author" content="Ana Carolina Fidelis Gonçalves e Davi de Almeida Cardoso"/>
 
-        <title>Trabalho 3 | Home</title>
+        <title>Trabalho 3 | Itens</title>
 
         <!-- Custom fonts for this template-->
         <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
@@ -38,7 +38,41 @@
 
             <div id="content-wrapper">
                 <div class="container-fluid">
-                    
+                    <!-- Breadcrumbs-->
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active">Itens</li>
+                    </ol>
+                    <div class="card-header">
+                        <i class="fas fa-list-alt"></i> Itens
+                    </div>
+                    <div class="card-body">
+                        <a class="btn btn-success mb-3" th:href="@{/admin/itens/create}"><i class="fas fa-plus"></i> Novo Item</a>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="tbItens" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>TÍTULO</th>
+                                        <th>ETIQUETAS</th>
+                                        <th>AÇÕES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="item: ${itens}">
+                                        <td th:text="${item.titulo}"></td>
+                                        <td>
+                                            <span class="badge badge-warning" th:each="etiqueta: ${item.etiquetas}"  th:text="${etiqueta.titulo}"></span>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <a th:href="@{'/admin/itens/edit/' + ${item.idItem}}" class="btn btn-sm btn-primary">Editar</a>
+                                                <a  th:href="@{'/admin/itens/delete/' + ${item.idItem}}" class="delete btn btn-sm btn-danger">Excluir</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Sticky Footer -->
