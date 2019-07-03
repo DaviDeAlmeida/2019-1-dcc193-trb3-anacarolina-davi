@@ -9,43 +9,42 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("admin/etiquetas")
 public class EtiquetaController {
 
     @Autowired
     private EtiquetaRepository repository;
     
-    @RequestMapping("/")
+    @RequestMapping("admin/etiquetas")
     public String index(Model model) {
         model.addAttribute("etiquetas", repository.findAll());
         return "admin/etiqueta/index";
     }
 
-    @RequestMapping("/create")
+    @RequestMapping("admin/etiquetas/create")
     public String criar(Model model) {
         model.addAttribute("etiqueta", new Etiqueta());
         return "admin/etiqueta/create";
     }
 
-    @RequestMapping("/store")
+    @RequestMapping("admin/etiquetas/store")
     public String store(Etiqueta etiqueta) {
         repository.save(etiqueta);
         return "redirect:/admin/etiquetas";
     }
 
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("admin/etiquetas/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("etiqueta", repository.findById(id));
         return "admin/etiqueta/edit";
     }
 
-    @RequestMapping("/update")
+    @RequestMapping("admin/etiquetas/update")
     public String update(Etiqueta etiqueta) {
         repository.save(etiqueta);
         return "redirect:/admin/etiquetas";
     }
 
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("admin/etiquetas/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         repository.deleteById(id);
         return "redirect:/admin/etiquetas";
