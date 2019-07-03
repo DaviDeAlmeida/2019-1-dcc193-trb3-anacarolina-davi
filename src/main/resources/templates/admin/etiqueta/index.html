@@ -38,7 +38,39 @@
 
             <div id="content-wrapper">
                 <div class="container-fluid">
-                    
+                    <!-- Breadcrumbs-->
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active">Etiquetas</li>
+                    </ol>
+                    <div class="card-header">
+                        <i class="fas fa-bars"></i> Etiquetas
+                    </div>
+                    <div class="card-body">
+                        <a class="btn btn-success mb-3" th:href="@{/admin/etiquetas/create}"><i class="fas fa-plus"></i> Nova Etiqueta</a>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="tbEtiquetas" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>TÍTULO</th>
+                                        <th>URL</th>
+                                        <th>AÇÕES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="etiqueta: ${etiquetas}">
+                                        <td th:text="${etiqueta.titulo}"></td>
+                                        <td th:text="${etiqueta.url}"></td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <a th:href="@{'/admin/etiquetas/edit/' + ${etiqueta.idEtiqueta}}" class="btn btn-sm btn-primary">Editar</a>
+                                                <a  th:href="@{'/admin/etiquetas/delete/' + ${etiqueta.idEtiqueta}}" class="delete btn btn-sm btn-danger">Excluir</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Sticky Footer -->

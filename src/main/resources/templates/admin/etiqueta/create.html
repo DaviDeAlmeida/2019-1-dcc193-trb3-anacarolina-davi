@@ -38,7 +38,44 @@
 
             <div id="content-wrapper">
                 <div class="container-fluid">
-                    
+                    <!-- Breadcrumbs-->
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a th:href="@{/etiquetas}">Etiquetas</a>
+                        </li>
+                        <li class="breadcrumb-item active">Nova</li>
+                    </ol>
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fas fa-bars"></i> Etiqueta 
+                        </div>
+                        <form th:action="@{/admin/etiquetas/store}" th:object="${etiqueta}" method="post">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="titulo">Título</label>
+                                            <input type="text" class="form-control" th:field="*{titulo}" required=""/>
+                                        </div> 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="url">URL</label>
+                                            <input type="text" class="form-control" th:field="*{url}" required=""/>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="decricao">Descrição</label>
+                                    <textarea class="form-control" rows="10" th:field="*{descricao}"></textarea>
+                                </div> 
+                            </div>
+                            <div class="card-footer">
+                                <a class="btn btn-dark" th:href="@{/admin/etiquetas}"><i class="fas fa-chevron-left"></i> Voltar</a>
+                                <button class="btn btn-primary" type="submit">Salvar</button>
+                            </div> 
+                        </form>
+                    </div>
                 </div>
 
                 <!-- Sticky Footer -->
