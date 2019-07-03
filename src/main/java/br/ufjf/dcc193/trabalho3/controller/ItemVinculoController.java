@@ -44,4 +44,12 @@ public class ItemVinculoController {
         return "redirect:/admin/vinculo/item/" + idItem;
     }
 
+    @RequestMapping("/admin/vinculo/item/{idItem}/edit/{id}")
+    public String edit(@PathVariable Long idItem, @PathVariable Long id, Model model) {
+        model.addAttribute("vinculo", vinculoRepository.findById(id).get());
+        model.addAttribute("itens", itemRepository.findAll());
+        model.addAttribute("itemOrigem", itemRepository.findById(idItem).get());
+        model.addAttribute("etiquetas", etiquetaRepository.findAll());
+        return "admin/item-vinculo/edit";
+    }
 }
