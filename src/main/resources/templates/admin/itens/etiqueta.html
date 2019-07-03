@@ -41,28 +41,28 @@
                 <div class="container-fluid">
                     <!-- Breadcrumbs-->
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active">Itens</li>
+                        <li class="breadcrumb-item">
+                            <a th:href="@{/admin/itens}">Itens</a>
+                        </li>
+                        <li class="breadcrumb-item active">Items por Etiqueta</li>
                     </ol>
                     <div class="card-header">
                         <i class="fa fa-list-ol"></i> Itens
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-success mb-3" th:href="@{/admin/itens/create}"><i class="fas fa-plus"></i> Novo Item</a>
+                        <p><i class="fa fa-tags"></i> <span th:text="${etiqueta.titulo}"></span></p>
+
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="tbItens" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="tbItensEtiqueta" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>TÍTULO</th>
-                                        <th>ETIQUETAS</th>
+                                        <th width="80%">TÍTULO</th>
                                         <th>AÇÕES</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr th:each="item: ${itens}">
                                         <td th:text="${item.titulo}"></td>
-                                        <td>
-                                            <a th:href="@{'/admin/itens/etiqueta/' + ${etiqueta.idEtiqueta}}" class="badge badge-warning" th:each="etiqueta: ${item.etiquetas}"  th:text="${etiqueta.titulo}" title="Itens da etiqueta"></a>
-                                        </td>
                                         <td class="text-center">
                                             <div class="btn-group">
                                                 <a th:href="@{'/admin/itens/edit/' + ${item.idItem}}" class="btn btn-sm btn-primary">Editar</a>

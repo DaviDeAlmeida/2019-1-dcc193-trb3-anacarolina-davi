@@ -59,4 +59,11 @@ public class ItemController {
         return "redirect:/admin/itens";
     }
     
+    @RequestMapping("admin/itens/etiqueta/{id}")
+    public String listItensEtiqueta(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("itens",  itemRepository.findByEtiquetas(etiquetaRepository.findById(id).get()));
+        model.addAttribute("etiqueta", etiquetaRepository.findById(id).get());
+        return "admin/itens/etiqueta";
+    }
+    
 }
