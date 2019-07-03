@@ -38,18 +38,24 @@ public class ItemVinculoController {
         return "admin/item-vinculo/create";
     }
 
-    @RequestMapping("admin/vinculo/item/{idItem}/store")
-    public String store(@PathVariable Long idItem, Vinculo vinculo) {
+    @RequestMapping("admin/vinculo/store")
+    public String store(Vinculo vinculo) {
         vinculoRepository.save(vinculo);
-        return "redirect:/admin/vinculo/item/" + idItem;
+        return "redirect:/admin/vinculo/item/" + vinculo.getItemDestino().getIdItem();
     }
 
-    @RequestMapping("/admin/vinculo/item/{idItem}/edit/{id}")
-    public String edit(@PathVariable Long idItem, @PathVariable Long id, Model model) {
+    @RequestMapping("/admin/vinculo/edit/{id}")
+    public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("vinculo", vinculoRepository.findById(id).get());
         model.addAttribute("itens", itemRepository.findAll());
-        model.addAttribute("itemOrigem", itemRepository.findById(idItem).get());
         model.addAttribute("etiquetas", etiquetaRepository.findAll());
         return "admin/item-vinculo/edit";
+    }
+    
+    @RequestMapping("admin/vinculo/delete/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        Vinculo vinculo = vinculoRepository.findById(id).get();
+        vinculoRepository.deleteById(id);
+        return "redirect:/admin/vinculo/item/" + vinculo.getItemDestino().getIdItem();
     }
 }

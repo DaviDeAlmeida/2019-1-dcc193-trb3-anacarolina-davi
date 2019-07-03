@@ -49,7 +49,7 @@
                         <div class="card-header">
                             <i class="fa fa-snowflake-o"></i> Item > Vínculos
                         </div>
-                        <form th:action="@{'/admin/vinculo/item/' + ${itemOrigem.idItem} + '/store'}" th:object="${Vinculo}" method="post">
+                        <form th:action="@{'/admin/vinculo/store'}" th:object="${Vinculo}" method="post">
                             <div class="card-body">
                                 <p><i class="fa fa-list-ol"></i> Item de Origem: <span th:text="${itemOrigem.titulo}"></span></p>
                                 <input type="hidden" name="itemOrigem" th:value="${itemOrigem.idItem}"/>

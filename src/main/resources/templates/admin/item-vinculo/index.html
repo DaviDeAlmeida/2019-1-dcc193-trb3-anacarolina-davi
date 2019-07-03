@@ -41,6 +41,9 @@
                 <div class="container-fluid">
                     <!-- Breadcrumbs-->
                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a th:href="@{/admin/itens}">Itens</a>
+                        </li>
                         <li class="breadcrumb-item active">Item > Vínculos</li>
                     </ol>
                     <div class="card mb-3">
@@ -67,8 +70,8 @@
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group">
-                                                    <a th:href="@{'/admin/vinculo/item/' + ${itemOrigem.idItem} + '/edit/' + ${vinculo.idVinculo}}" class="btn btn-sm btn-primary">Editar</a>
-                                                    <a  th:href="@{'/admin/vinculo/item/' + ${itemOrigem.idItem} + '/delete/' + ${vinculo.idVinculo}}" class="btn btn-sm btn-danger">Excluir</a>
+                                                    <a th:href="@{'/admin/vinculo/edit/' + ${vinculo.idVinculo}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a  th:href="@{'/admin/vinculo/delete/' + ${vinculo.idVinculo}}" class="btn btn-sm btn-danger">Excluir</a>
                                                 </div>
                                             </td>
                                         </tr>
