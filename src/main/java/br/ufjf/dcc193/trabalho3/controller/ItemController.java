@@ -1,6 +1,5 @@
 package br.ufjf.dcc193.trabalho3.controller;
 
-import br.ufjf.dcc193.trabalho3.Repository.AnotacaoRepository;
 import br.ufjf.dcc193.trabalho3.Repository.EtiquetaRepository;
 import br.ufjf.dcc193.trabalho3.Repository.ItemRepository;
 import br.ufjf.dcc193.trabalho3.models.Item;
@@ -14,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ItemController {
     @Autowired
     private ItemRepository itemRepository;
-    
-    @Autowired
-    private AnotacaoRepository anotacaoRepository;
     
     @Autowired
     private EtiquetaRepository etiquetaRepository;

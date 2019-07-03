@@ -13,6 +13,12 @@ public class Anotacao {
 
     @OneToOne(fetch = FetchType.EAGER)
     private Usuario usuario;
+    
+    @OneToOne(fetch = FetchType.EAGER)
+    private Item item;
+    
+    @OneToOne(fetch = FetchType.EAGER)
+    private Vinculo vinculo;
 
     private String dataInclusao;
     private String dataAlteracao;
@@ -75,5 +81,21 @@ public class Anotacao {
 
     public void setDataAlteracao(String dataAlteracao) {
         this.dataAlteracao = dataAlteracao;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public Vinculo getVinculo() {
+        return vinculo;
+    }
+
+    public void setVinculo(Vinculo vinculo) {
+        this.vinculo = vinculo;
     }
 }

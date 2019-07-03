@@ -7,7 +7,7 @@
         <meta name="description" content="Trabalho 3"/>
         <meta name="author" content="Ana Carolina Fidelis Gonçalves e Davi de Almeida Cardoso"/>
 
-        <title>Trabalho 3 | Itens</title>
+        <title>Trabalho 3 | Item > Anotações</title>
 
         <!-- Custom fonts for this template-->
         <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
@@ -35,43 +35,71 @@
                         <span>Home</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/etiquetas}">
+                        <i class="fa fa-tags"></i>
+                        <span>Etiquetas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/itens}">
+                        <i class="fa fa-list-ol"></i>
+                        <span>Itens</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/usuarios}">
+                        <i class="fa fa-users"></i>
+                        <span>Usuários</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/anotacao/create}">
+                        <i class="fa fa-snowflake-o"></i>
+                        <span>Vincular Item</span>
+                    </a>
+                </li>
             </ul>
 
             <div id="content-wrapper">
                 <div class="container-fluid">
                     <!-- Breadcrumbs-->
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active">Itens</li>
+                        <li class="breadcrumb-item">
+                            <a th:href="@{/admin/itens}">Itens</a>
+                        </li>
+                        <li class="breadcrumb-item active">Item > Anotações</li>
                     </ol>
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-list-ol"></i> Itens
+                            <i class="fa fa-comments-o"></i> Item > Anotações
                         </div>
                         <div class="card-body">
-                            <a class="btn btn-success mb-3" th:href="@{/admin/itens/create}"><i class="fas fa-plus"></i> Novo Item</a>
-                            <a class="btn btn-primary mb-3" th:href="@{/admin/anotacoes/itens/create}"><i class="fas fa-plus"></i> Nova Anotação</a>
-                            
+                            <p><i class="fa fa-list-ol"></i> Item: <span th:text="${item.titulo}"></span></p>
+                            <a class="btn btn-success mb-3" th:href="@{/admin/anotacoes/itens/create}"><i class="fas fa-plus"></i> Nova Anotação</a>
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="tbItens" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="tbAnotacoes" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>TÍTULO</th>
-                                            <th>ETIQUETAS</th>
+                                            <th>DESCRIÇÃO</th>
+                                            <th>URL</th>
+                                            <th>DATA DE INCLUSÃO</th>
+                                            <th>DATA DE ALTERAÇÃO</th>
+                                            <th>USUÁRIO</th>
                                             <th>AÇÕES</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="item: ${itens}">
-                                            <td th:text="${item.titulo}"></td>
-                                            <td>
-                                                <a th:href="@{'/admin/itens/etiqueta/' + ${etiqueta.idEtiqueta}}" class="badge badge-warning" th:each="etiqueta: ${item.etiquetas}"  th:text="${etiqueta.titulo}" title="Itens da etiqueta"></a>
-                                            </td>
+                                        <tr th:each="anotacao: ${anotacoes}">
+                                            <td th:text="${anotacao.descricao}"></td>
+                                            <td th:text="${anotacao.url}"></td>
+                                            <td th:text="${anotacao.dataInclusao}"></td>
+                                            <td th:text="${anotacao.dataAlteracao}"></td>
+                                            <td th:text="${anotacao.usuario.nomeCompleto}"></td>
                                             <td class="text-center">
                                                 <div class="btn-group">
-                                                    <a th:href="@{'/admin/itens/edit/' + ${item.idItem}}" class="btn btn-sm btn-primary">Editar</a>
-                                                    <a  th:href="@{'/admin/itens/delete/' + ${item.idItem}}" class="btn btn-sm btn-danger">Excluir</a>
-                                                    <a  th:href="@{'/admin/vinculo/item/' + ${item.idItem}}" class="btn btn-sm btn-success">Vínculos</a>
-                                                    <a  th:href="@{'/admin/anotacoes/item/' + ${item.idItem}}" class="btn btn-sm btn-warning">Anotações</a>
+                                                    <a th:href="@{'/admin/anotacoes/item/edit/' + ${anotacao.idAnotacao}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a  th:href="@{'/admin/anotacoes/item/delete/' + ${anotacao.idAnotacao}}" class="btn btn-sm btn-danger">Excluir</a>
                                                 </div>
                                             </td>
                                         </tr>
