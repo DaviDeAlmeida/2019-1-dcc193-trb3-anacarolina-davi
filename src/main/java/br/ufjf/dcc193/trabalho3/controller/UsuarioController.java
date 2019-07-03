@@ -9,45 +9,44 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("admin/usuario")
-public class UsuarioAdminController {
+public class UsuarioController {
 
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    @RequestMapping("/")
+    @RequestMapping("admin/usuarios")
     public String index(Model model) {
-        model.addAttribute("usuario", usuarioRepository.findAll());
+        model.addAttribute("usuarios", usuarioRepository.findAll());
         return "admin/usuario/index";
     }
 
-    @RequestMapping("/create")
+    @RequestMapping("admin/usuarios/create")
     public String criar(Model model) {
         model.addAttribute("usuario", new Usuario());
         return "admin/usuario/create";
     }
 
-    @RequestMapping("/store")
+    @RequestMapping("admin/usuarios/store")
     public String store(Usuario usuario) {
         usuarioRepository.save(usuario);
-        return "redirect:/admin/usuario";
+        return "redirect:/admin/usuarios";
     }
 
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("admin/usuarios/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("usuario", usuarioRepository.findById(id));
         return "admin/usuario/edit";
     }
 
-    @RequestMapping("/update")
+    @RequestMapping("admin/usuarios/update")
     public String update(Usuario usuario) {
         usuarioRepository.save(usuario);
-        return "redirect:/admin/usuario";
+        return "redirect:/admin/usuarios";
     }
 
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("admin/usuarios/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         usuarioRepository.deleteById(id);
-        return "redirect:/admin/usuario";
+        return "redirect:/admin/usuarios";
     }
 }

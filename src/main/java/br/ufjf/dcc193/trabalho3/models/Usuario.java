@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idUsuario;
     private String nomeCompleto;
     private String codAcesso;

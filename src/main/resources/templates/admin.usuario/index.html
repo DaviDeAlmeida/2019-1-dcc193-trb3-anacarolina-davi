@@ -7,7 +7,7 @@
     <meta name="description" content="Trabalho 2 - Gestão e avaliação de pesquisas"/>
     <meta name="author" content="Ana Carolina Fidelis Gonçalves"/>
 
-    <title>Trabalho 3 | Etiquetas</title>
+    <title>Trabalho 3 | Usuários</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
@@ -38,7 +38,41 @@
 
     <div id="content-wrapper">
         <div class="container-fluid">
-
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Usuários</li>
+            </ol>
+            <div class="card-header">
+                <i class="fas fa-bars"></i> Usuários
+            </div>
+            <div class="card-body">
+                <a class="btn btn-success mb-3" th:href="@{/admin/usuarios/create}"><i class="fas fa-plus"></i> Novo Usuário</a>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="tbUsuarios" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Nome Completo</th>
+                            <th>Email</th>
+                            <th>Descrição</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="usuario: ${usuarios}">
+                            <td th:text="${usuario.nomeCompleto}"></td>
+                            <td th:text="${usuario.email}"></td>
+                            <td th:text="${usuario.descricao}"></td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a th:href="@{'/admin/usuarios/edit/' + ${usuario.idUsuario}}" class="btn btn-sm btn-primary">Editar</a>
+                                    <a  th:href="@{'/admin/usuarios/delete/' + ${etiqueta.idUsuario}}" class="delete btn btn-sm btn-danger">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <!-- Sticky Footer -->

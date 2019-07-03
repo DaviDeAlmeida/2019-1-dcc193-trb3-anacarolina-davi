@@ -38,9 +38,52 @@
 
     <div id="content-wrapper">
         <div class="container-fluid">
-
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a th:href="@{/usuarios}">Usuários</a>
+                </li>
+                <li class="breadcrumb-item active">Alterar</li>
+            </ol>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-bars"></i> Usuário
+                </div>
+                <form th:action="@{/admin/usuarios/update}" th:object="${usuario}" method="post">
+                    <input type="hidden" th:field="*{idUsuario}"/>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="nomeCompleto">Título</label>
+                                    <input type="text" class="form-control" th:field="*{nomeCompleto}" required=""/>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="email">URL</label>
+                                    <input type="text" class="form-control" th:field="*{email}" required=""/>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="codAcesso">Senha</label>
+                                    <input type="text" class="form-control" th:field="*{codAcesso}" required=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="decricao">Descrição</label>
+                            <textarea class="form-control" rows="10" th:field="*{descricao}"></textarea>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-dark" th:href="@{/admin/usuarios}"><i class="fas fa-chevron-left"></i> Voltar</a>
+                        <button class="btn btn-primary" type="submit">Salvar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
             <div class="container my-auto">
