@@ -4,13 +4,14 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <meta name="description" content="Trabalho 2 - Gestão e avaliação de pesquisas"/>
-        <meta name="author" content="Ana Carolina Fidelis Gonçalves"/>
+        <meta name="description" content="Trabalho 3"/>
+        <meta name="author" content="Ana Carolina Fidelis Gonçalves e Davi de Almeida Cardoso"/>
 
         <title>Trabalho 3 | Etiquetas</title>
 
         <!-- Custom fonts for this template-->
         <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
         <!-- Page level plugin CSS-->
         <link th:href="@{/vendor/datatables/dataTables.bootstrap4.css}" rel="stylesheet"/>
         <!-- Custom styles for this template-->
@@ -47,7 +48,7 @@
                     </ol>
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fas fa-bars"></i> Etiqueta 
+                            <i class="fa fa-tags"></i> Etiqueta 
                         </div>
                         <form th:action="@{/admin/etiquetas/store}" th:object="${etiqueta}" method="post">
                             <div class="card-body">
