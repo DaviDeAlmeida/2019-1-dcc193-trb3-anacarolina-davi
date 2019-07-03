@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufjf.dcc193.trabalho3.controller;
 
 import br.ufjf.dcc193.trabalho3.Repository.EtiquetaRepository;
@@ -35,7 +30,7 @@ public class EtiquetaController {
     @RequestMapping("/store")
     public String store(Etiqueta etiqueta) {
         repository.save(etiqueta);
-        return "redirect:/admin/etiqueta";
+        return "redirect:/admin/etiquetas";
     }
 
     @RequestMapping("/edit/{id}")
@@ -47,13 +42,13 @@ public class EtiquetaController {
     @RequestMapping("/update")
     public String update(Etiqueta etiqueta) {
         repository.save(etiqueta);
-        return "redirect:/admin/etiqueta";
+        return "redirect:/admin/etiquetas";
     }
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         repository.deleteById(id);
-        return "redirect:/admin/etiqueta";
+        return "redirect:/admin/etiquetas";
     }
 
 }
