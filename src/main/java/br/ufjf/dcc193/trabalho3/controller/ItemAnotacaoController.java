@@ -45,7 +45,7 @@ public class ItemAnotacaoController {
     @RequestMapping("admin/anotacoes/item/store")
     public String store(Anotacao anotacao) {
         Date date = Calendar.getInstance().getTime();  
-        DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         anotacao.setDataInclusao(dateFormat.format(date));
         anotacaoRepository.save(anotacao);
         return "redirect:/admin/itens";
@@ -62,7 +62,7 @@ public class ItemAnotacaoController {
     @RequestMapping("admin/anotacoes/item/update")
     public String upadate(Anotacao anotacao) {
         Date date = Calendar.getInstance().getTime();  
-        DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         anotacao.setDataAlteracao(dateFormat.format(date));
         anotacaoRepository.save(anotacao);
         return "redirect:/admin/itens";

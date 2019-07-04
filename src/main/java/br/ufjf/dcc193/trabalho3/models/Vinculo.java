@@ -19,18 +19,15 @@ public class Vinculo {
     @ManyToMany()
     private List<Etiqueta> etiquetas;
 
-    @ManyToMany()
-    private List<Anotacao> anotacoes;
 
     public Vinculo() {
     }
 
-    public Vinculo(Long idVinculo, Item itemOrigem, Item itemDestino, List<Etiqueta> etiquetas, List<Anotacao> anotacoes) {
+    public Vinculo(Long idVinculo, Item itemOrigem, Item itemDestino, List<Etiqueta> etiquetas) {
         this.idVinculo = idVinculo;
         this.itemOrigem = itemOrigem;
         this.itemDestino = itemDestino;
         this.etiquetas = etiquetas;
-        this.anotacoes = anotacoes;
     }
 
     public Long getIdVinculo() {
@@ -63,13 +60,5 @@ public class Vinculo {
 
     public void setEtiquetas(List<Etiqueta> etiquetas) {
         this.etiquetas = etiquetas;
-    }
-
-    public List<Anotacao> getAnotacoes() {
-        return anotacoes;
-    }
-
-    public void setAnotacoes(List<Anotacao> anotacoes) {
-        this.anotacoes = anotacoes;
     }
 }

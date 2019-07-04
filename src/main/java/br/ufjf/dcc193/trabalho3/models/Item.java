@@ -12,9 +12,6 @@ public class Item {
     private Long idItem;
     private String titulo;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Anotacao> anotacoes;
-
     @ManyToMany
     private List<Etiqueta> etiquetas;
 
@@ -25,12 +22,10 @@ public class Item {
         etiquetas = new ArrayList<>();
     }
 
-    public Item(Long idItem, String titulo, List<Anotacao> anotacoes, List<Etiqueta> etiquetas, List<Vinculo> vinculos) {
+    public Item(Long idItem, String titulo,List<Etiqueta> etiquetas) {
         this.idItem = idItem;
         this.titulo = titulo;
-        this.anotacoes = anotacoes;
         this.etiquetas = etiquetas;
-        this.vinculos = vinculos;
     }
 
     public Long getIdItem() {
@@ -49,27 +44,11 @@ public class Item {
         this.titulo = titulo;
     }
 
-    public List<Anotacao> getAnotacoes() {
-        return anotacoes;
-    }
-
-    public void setAnotacoes(List<Anotacao> anotacoes) {
-        this.anotacoes = anotacoes;
-    }
-
     public List<Etiqueta> getEtiquetas() {
         return etiquetas;
     }
 
     public void setEtiquetas(List<Etiqueta> etiquetas) {
         this.etiquetas = etiquetas;
-    }
-
-    public List<Vinculo> getVinculos() {
-        return vinculos;
-    }
-
-    public void setVinculos(List<Vinculo> vinculos) {
-        this.vinculos = vinculos;
     }
 }

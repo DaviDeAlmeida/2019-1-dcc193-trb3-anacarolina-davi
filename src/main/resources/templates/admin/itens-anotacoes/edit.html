@@ -7,7 +7,7 @@
         <meta name="description" content="Trabalho 3"/>
         <meta name="author" content="Ana Carolina Fidelis Gonçalves e Davi de Almeida Cardoso"/>
 
-        <title>Trabalho 3 | Item > Vínculos</title>
+        <title>Trabalho 3 |  Item > Anotações</title>
 
         <!-- Custom fonts for this template-->
         <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
@@ -71,41 +71,52 @@
                 <div class="container-fluid">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a th:href="@{'/admin/vinculo/item/' + ${itemOrigem.idItem}}">Item > Vínculos</a>
+                            <a th:href="@{'/admin/itens}">Item </a>
                         </li>
-                        <li class="breadcrumb-item active">Novo vínculo</li>
+                        <li class="breadcrumb-item active">Anotações</li>
                     </ol>
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-snowflake-o"></i> Item > Vínculos
+                            <i class="fa fa-comments-o"></i> Alterar Anotação
                         </div>
-                        <form th:action="@{'/admin/vinculo/store'}" th:object="${Vinculo}" method="post">
+
+                        <form th:action="@{'/admin/anotacoes/item/update'}" th:object="${anotacao}" method="post">
+                            <input type="hidden" th:field="*{idAnotacao}"/>
+                            <input type="hidden" th:field="*{dataInclusao}"/>
                             <div class="card-body">
-                                <p><i class="fa fa-list-ol"></i> Item de Origem: <span th:text="${itemOrigem.titulo}"></span></p>
-                                <input type="hidden" name="itemOrigem" th:value="${itemOrigem.idItem}"/>
-                                <div class="form-group">
-                                    <label for="itemDestino">Item de Destino</label>
-                                    <select class="form-control" name="itemDestino" required="">
-                                        <option value="">Selecione</option>
-                                        <option th:each="item: ${itens}" th:value="${item.idItem}" th:text="${item.titulo}"></option>
-                                    </select>
-                                </div> 
-                                <div class="form-group">
-                                    <label>Etiquetas</label>
-                                    <div class="form-check">
-                                        <div class="row">
-                                            <div class="col-4" th:each="etiqueta: ${etiquetas}" th:object=${Etiqueta}>
-                                                <input class="form-check-input" type="checkbox" th:id="${etiqueta.idEtiqueta}" th:value="${etiqueta.idEtiqueta}" name="etiquetas">
-                                                    <label class="form-check-label" th:for="${etiqueta.idEtiqueta}" th:text="${etiqueta.titulo}"></label>
-                                            </div>
-                                        </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="item">Item</label>
+                                            <select class="form-control" th:field="*{item}" required="">
+                                                <option value="">Selecione</option>
+                                                <option th:each="item: ${itens}" th:value="${item.idItem}" th:text="${item.titulo}"></option>
+                                            </select>
+                                        </div> 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="usuario">Usuario</label>
+                                            <select class="form-control" th:field="*{usuario}" required="">
+                                                <option value="">Selecione</option>
+                                                <option th:each="usuario: ${usuarios}" th:value="${usuario.idUsuario}" th:text="${usuario.nomeCompleto}"></option>
+                                            </select>
+                                        </div> 
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="url">URL</label>
+                                    <input type="text" class="form-control" th:field="*{url}" required=""/>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="descricao">Descrição</label>
+                                    <textarea class="form-control" rows="5" th:field="*{descricao}"></textarea>
+                                </div> 
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-dark" th:href="@{'/admin/vinculo/item/' + ${itemOrigem.idItem}}"><i class="fas fa-chevron-left"></i> Voltar</a>
+                                <a class="btn btn-dark" th:href="@{/admin/itens}"><i class="fas fa-chevron-left"></i> Voltar</a>
                                 <button class="btn btn-primary" type="submit">Salvar</button>
-                            </div> 
+                            </div>
                         </form>
                     </div>
                 </div>

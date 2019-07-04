@@ -35,6 +35,36 @@
                         <span>Home</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/etiquetas}">
+                        <i class="fa fa-tags"></i>
+                        <span>Etiquetas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/itens}">
+                        <i class="fa fa-list-ol"></i>
+                        <span>Itens</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/usuarios}">
+                        <i class="fa fa-users"></i>
+                        <span>Usuários</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/vinculo/create}">
+                        <i class="fa fa-snowflake-o"></i>
+                        <span>Vincular Item</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/anotacoes/itens/create}">
+                        <i class="fa fa-comments-o"></i>
+                        <span>Anotação Item</span>
+                    </a>
+                </li>
             </ul>
 
             <div id="content-wrapper">
@@ -43,33 +73,35 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item active">Usuários</li>
                     </ol>
-                    <div class="card-header">
-                        <i class="fa fa-users"></i> Usuários
-                    </div>
-                    <div class="card-body">
-                        <a class="btn btn-success mb-3" th:href="@{/admin/usuarios/create}"><i class="fas fa-plus"></i> Novo Usuário</a>
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="tbUsuarios" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>NOME</th>
-                                        <th>EMAIL</th>
-                                        <th>AÇÕES</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr th:each="usuario: ${usuarios}">
-                                        <td th:text="${usuario.nomeCompleto}"></td>
-                                        <td th:text="${usuario.email}"></td>
-                                        <td class="text-center">
-                                            <div class="btn-group">
-                                                <a th:href="@{'/admin/usuarios/edit/' + ${usuario.idUsuario}}" class="btn btn-sm btn-primary">Editar</a>
-                                                <a  th:href="@{'/admin/usuarios/delete/' + ${usuario.idUsuario}}" class="delete btn btn-sm btn-danger">Excluir</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-users"></i> Usuários
+                        </div>
+                        <div class="card-body">
+                            <a class="btn btn-success mb-3" th:href="@{/admin/usuarios/create}"><i class="fas fa-plus"></i> Novo Usuário</a>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="tbUsuarios" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>NOME</th>
+                                            <th>EMAIL</th>
+                                            <th>AÇÕES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="usuario: ${usuarios}">
+                                            <td th:text="${usuario.nomeCompleto}"></td>
+                                            <td th:text="${usuario.email}"></td>
+                                            <td class="text-center">
+                                                <div class="btn-group">
+                                                    <a th:href="@{'/admin/usuarios/edit/' + ${usuario.idUsuario}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a  th:href="@{'/admin/usuarios/delete/' + ${usuario.idUsuario}}" class="delete btn btn-sm btn-danger">Excluir</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
