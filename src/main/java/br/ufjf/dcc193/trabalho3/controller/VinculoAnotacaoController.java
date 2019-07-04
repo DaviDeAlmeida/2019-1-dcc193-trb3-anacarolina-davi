@@ -49,10 +49,10 @@ public class VinculoAnotacaoController {
     @RequestMapping("admin/anotacoes/vinculo/store")
     public String store(Anotacao anotacao) {
         Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         anotacao.setDataInclusao(dateFormat.format(date));
         anotacaoRepository.save(anotacao);
-        return "redirect:/admin/vinculos";
+        return "redirect:/admin/itens";
     }
 
     @RequestMapping("admin/anotacoes/vinculo/edit/{id}")
@@ -67,15 +67,15 @@ public class VinculoAnotacaoController {
     @RequestMapping("admin/anotacoes/vinculo/update")
     public String upadate(Anotacao anotacao) {
         Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         anotacao.setDataAlteracao(dateFormat.format(date));
         anotacaoRepository.save(anotacao);
-        return "redirect:/admin/vinculos";
+        return "redirect:/admin/itens";
     }
 
     @RequestMapping("admin/anotacoes/vinculo/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         anotacaoRepository.deleteById(id);
-        return "redirect:/admin/vinculos";
+        return "redirect:/admin/itens";
     }
 }
